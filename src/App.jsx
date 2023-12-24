@@ -1,3 +1,5 @@
+import Header from "./components/Navbar/Header"
+import Login from "./components/Signup/Login"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 function App() {
@@ -6,6 +8,7 @@ function App() {
   return (
     <>
     <Header/>
+    <Login />
     
     <div className="w-[50%]">
     In 2021, Jose, a former boxer from the UAE, discussed the power of CBD on an online platform. He spoke about how it could reduce inflammation and ease tight muscles, thus treating the cause of pain rather than just the pain itself.
