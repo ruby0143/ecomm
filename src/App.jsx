@@ -1,13 +1,14 @@
-
+import Header from "./components/Header"
 
 function App() {
 
 
   return (
     <>
-    app
+    <Header/>
     </>
   )
 }
 
 export default App
+ 
