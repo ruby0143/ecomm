@@ -2,6 +2,7 @@ import Header from "./components/Navbar/Header"
 import Login from "./components/Signup/Login"
 
 import Footer from "./components/Footer"
+
 function App() {
 
 
@@ -9,8 +10,6 @@ function App() {
     <>
     <Header/>
     <Login />
-    
-    
     <Footer/>
     </>
   )

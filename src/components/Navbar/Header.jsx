@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
+
 
 function Header() {
+
   const [displaystyle, setdisplaystyle] = useState("none");
   window.onclick = function(event) {
     if (!event.target.matches('#menu-icon')&&!event.target.matches('#dropdown-menu')&&!event.target.matches('#dropdown-items')&&!event.target.matches('#blur')) {
-       setdisplaystyle("none");
+       setdisplaystyle("none")
     }
   }
 
+
+  
+  
   return (
     <div >
       <div className="h-[10vh] flex justify-between shadow-lg px-4 items-center">
@@ -30,7 +35,8 @@ function Header() {
         />
         <div className="mr-2 text-xl w-48 align-middle justify-start flex gap-6 text-[#409797] font-semibold">
           <img className="h-[4vh] align-text-bottom" src="\profileIcon.svg" alt="" />
-          <a href="">Login</a>
+          <a id="Loginbutton" 
+           href="">Login</a>
           <img className="h-[4vh] align-text-bottom"src="\bag.svg" alt="" />
         </div>
       </div>
@@ -58,5 +64,6 @@ function Header() {
     </div>
   );
 }
+
 
 export default Header;
