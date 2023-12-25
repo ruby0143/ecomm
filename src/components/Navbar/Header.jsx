@@ -1,19 +1,28 @@
-import React, {  useState } from "react";
-import Login from "../Signup/Login";
+import React, {  useContext, useState } from "react";
+import LoginModalContext from "../../Context/Context";
+
 
 
 function Header() {
 
   const [displaystyle, setdisplaystyle] = useState("none");
-  const [isModalOpen, setisModalOpen] = useState(false);
+
   window.onclick = function(event) {
     if (!event.target.matches('#menu-icon')&&!event.target.matches('#dropdown-menu')&&!event.target.matches('#dropdown-items')&&!event.target.matches('#blur')) {
        setdisplaystyle("none")
     }
   }
  
+  const {displayMode,setdisplayMode} = useContext(LoginModalContext)
   
-  
+
+  const loginDisplay = () =>{
+    console.log(displayMode);
+    if(displayMode==="none"){
+      setdisplayMode("flex")
+    }
+    else setdisplayMode("none")
+  }
   
   return (
     <div >
@@ -37,13 +46,11 @@ function Header() {
         />
         <div className="mr-2 text-xl w-48 align-middle justify-start flex gap-6 text-[#409797] font-semibold">
           <img className="h-[4vh] align-text-bottom" src="\profileIcon.svg" alt="" />
-          <a id="Loginbutton" 
-           href="" onClick={()=>{setisModalOpen(true)
-            console.log(isModalOpen);}} >Login</a>
+          <button id="Loginbutton" onClick={loginDisplay} >Login</button>
           <img className="h-[4vh] align-text-bottom"src="\bag.svg" alt="" />
         </div>
       </div>
-     <Login open={isModalOpen}/>
+     
      <div className="flex">
       <div
         id="dropdown-menu"
