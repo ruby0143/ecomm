@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-function Login(props) {
+function Login({open}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginState, setLoginState] = useState(false);
-    const [isModalOpen, setisModalOpen] = useState(props.open);
+    const [isModalOpen, setisModalOpen] = useState(open);
+    
     
 
     const provider = new GoogleAuthProvider();
@@ -67,6 +68,10 @@ function Login(props) {
         console.log(loginState)
         setLoginState(prev => !prev)
     }
+
+    const closeModal = () =>{
+        setisModalOpen(prev => !prev)
+    }
     return (
         <div>
             {isModalOpen&&(
@@ -74,6 +79,7 @@ function Login(props) {
             <div className='
          flex-col min-h-screen w-[31%] -mt-[10vh] bg-[#027373] fixed right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
         style={{ display:"flex"}}>
+                <img className="h-[6vh] absolute left-3 w-16" onClick={closeModal} src="\close-icon.svg" alt="" />
                 {loginState ? (<>
                     <span className='text-2xl '>Login</span>
                     <hr className='border-1 border-[#a9d9ce] mt-2'/>

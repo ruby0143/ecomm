@@ -12,7 +12,10 @@ function Header() {
     }
   }
  
-  
+  const displayLogin = () =>{
+    setisModalOpen(prev => !prev);
+    
+  }
   
   
   return (
@@ -37,13 +40,13 @@ function Header() {
         />
         <div className="mr-2 text-xl w-48 align-middle justify-start flex gap-6 text-[#409797] font-semibold">
           <img className="h-[4vh] align-text-bottom" src="\profileIcon.svg" alt="" />
-          <a id="Loginbutton" 
-           href="" onClick={()=>{setisModalOpen(true)
-            console.log(isModalOpen);}} >Login</a>
+          <button id="Loginbutton" 
+          onClick={displayLogin} >Login</button>
           <img className="h-[4vh] align-text-bottom"src="\bag.svg" alt="" />
         </div>
       </div>
-     <Login open={isModalOpen}/>
+      {isModalOpen && (<Login open={isModalOpen}/>)}
+     
      <div className="flex">
       <div
         id="dropdown-menu"
