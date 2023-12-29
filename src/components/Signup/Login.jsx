@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import LoginModalContext from '../../Context/Context';
 
-function Login({open}) {
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginState, setLoginState] = useState(false);
-    const [isModalOpen, setisModalOpen] = useState(open);
     
+    const {displayMode,setdisplayMode} = useContext(LoginModalContext)
     
-
+    const loginDisplay = () =>{
+        
+        
+        setdisplayMode("none")
+      }
     const provider = new GoogleAuthProvider();
     const signUpUser = async (e) => {
         createUserWithEmailAndPassword(auth, email, password)
@@ -74,14 +79,16 @@ function Login({open}) {
     }
     return (
         <div>
-            {isModalOpen&&(
+            
 
             <div className='
          flex-col min-h-screen w-[31%] -mt-[10vh] bg-[#027373] fixed right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
-        style={{ display:"flex"}}>
-                <img className="h-[6vh] absolute left-3 w-16" onClick={closeModal} src="\close-icon.svg" alt="" />
+         
+        style={{ display:displayMode}}>
+            <img onClick={loginDisplay} className="h-[6vh] absolute top-3 right-0  w-16" src="\close-icon.svg" alt="" />
                 {loginState ? (<>
-                    <span className='text-2xl '>Login</span>
+                    <span className='text-2xl '>Login</span> 
+                    
                     <hr className='border-1 border-[#a9d9ce] mt-2'/>
                     <p>New to this site? <button onClick={handleLoginChange}>Sign Up</button></p>
                     <div className='flex flex-col w-[50vh] mx-auto gap-3 text-xl mt-20'>
@@ -104,7 +111,7 @@ function Login({open}) {
                 </>)}
 
             </div>
-            )}
+           
 
         </div>
     )
