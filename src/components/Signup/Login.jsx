@@ -89,15 +89,16 @@ function Login() {
 
 
             <div className='
-         flex-col min-h-screen w-[31%] -mt-[10vh] bg-[#027373] fixed right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
-
-                style={{ display: displayMode }}>
-                <img onClick={loginDisplay} className="h-[6vh] absolute top-3 right-0  w-16" src="\close-icon.svg" alt="" />
+         flex-col min-h-screen w-[31%]  bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
+         
+        style={{ display:displayMode}}>
+            <img onClick={loginDisplay} className="h-[6vh] absolute top-3 right-0  w-16" src="\close-icon.svg" alt="" />
                 {loginState ? (<>
                     <span className='text-2xl '>Login</span>
 
                     <hr className='border-1 border-[#a9d9ce] mt-2' />
                     <p>New to this site? <button onClick={handleLoginChange}>Sign Up</button></p>
+                    
                     <div className='flex flex-col w-[50vh] mx-auto gap-3 text-xl mt-20'>
                         <label for='label'>Email</label>
                         <input className='rounded-md h-10 shadow-md' type='email' onChange={(e) => setEmail(e.target.value)} />

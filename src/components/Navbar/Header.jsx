@@ -27,7 +27,7 @@ function Header() {
   
   return (
     <div >
-      <div className="h-[10vh] flex justify-between shadow-lg px-4 items-center">
+      <div className="h-[11vh] w-full justify-between shadow-lg flex px-4 items-center bg-white fixed z-10 border-b-2 border-[#a9d9ce]">
         <img id="menu-icon"
           onClick={() => {
             if (displaystyle === "none") {
@@ -36,26 +36,28 @@ function Header() {
               setdisplaystyle("none");
             }
           }}
-          className="h-10 "
+          className="h-8 justify-self-center "
           src="\menu.svg"
           alt=""
         />
         <img
-          className=" h-[10vh]"
+          className=" h-[10vh] pl-24 "
           src="https://static.wixstatic.com/media/5eed11_b38f1857c3dd4da48ea06749d409527f~mv2.jpeg/v1/crop/x_0,y_879,w_4167,h_2409/fill/w_160,h_93,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1.jpeg"
           alt=""
         />
-        <div className="mr-2 text-xl w-48 align-middle justify-start flex gap-6 text-[#409797] font-semibold">
+        <div className=" text-xl w-48 overflow-hidden align-middle justify-end flex gap-4 text-[#409797] font-semibold">
           <img className="h-[4vh] align-text-bottom" src="\profileIcon.svg" alt="" />
           <button id="Loginbutton" onClick={loginDisplay} >Login</button>
           <img className="h-[4vh] align-text-bottom"src="\bag.svg" alt="" />
         </div>
+      
       </div>
+    
      
      <div className="flex">
       <div
         id="dropdown-menu"
-        className="hidden min-h-screen w-[31%] -mt-[10vh] bg-[#027373] fixed"
+        className="hidden min-h-screen w-[31%] bg-[#027373] fixed z-20"
         style={{ display: displaystyle }}
       >
        <img className="h-[6vh] absolute top-3 right-0  w-16" src="\close-icon.svg" alt="" />

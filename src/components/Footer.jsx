@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="flex justify-between">
+    <div className=" font-family flex justify-between">
       <div className="  bottom-0 left-0 items-center flex flex-col px-5 py-10 max-w-[50%]">
         <img
           className="w-[70vh] "
