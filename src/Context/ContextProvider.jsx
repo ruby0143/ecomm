@@ -3,9 +3,9 @@ import LoginModalContext from "./Context";
 
 const LoginModalContextProvider = ({children}) => {
     const [displayMode, setdisplayMode] = React.useState("none")
-    const [userContext, setUserContext] = React.useState('');
+    
     return(
-        <LoginModalContext.Provider value={{displayMode, setdisplayMode,userContext,setUserContext}}>
+        <LoginModalContext.Provider value={{displayMode, setdisplayMode}}>
         {children}
         </LoginModalContext.Provider>
     )

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import LoginModalContext from '../../Context/Context';
@@ -7,14 +7,21 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginState, setLoginState] = useState(true);
+    const { displayMode, setdisplayMode} = useContext(LoginModalContext)
+    const [user,setUser] = useState(null);
 
-    const { displayMode, setdisplayMode, userContext, setUserContext } = useContext(LoginModalContext)
+    useEffect(()=>{
+        auth.onAuthStateChanged(user=> {
+            console.log(user,"printing from navbar");
+            setUser(user.email);
+        })
+    },[])
 
     const loginDisplay = () => {
         setdisplayMode("none")
     }
-
-
+    
+    
 
     const googleSignUp = async (e) => {
         const provider = new GoogleAuthProvider();
@@ -26,7 +33,7 @@ function Login() {
                 // The signed-in user info.
                 const user = result.user;
                 console.log("User successfully logged in as : ", user)
-                setUserContext(user);
+                
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -48,7 +55,7 @@ function Login() {
                 // Signed up 
                 const user = userCredential.user;
                 console.log("User created as : ", userCredential)
-                setUserContext(user);
+                
                 // ...
             })
             .catch((error) => {
@@ -65,7 +72,7 @@ function Login() {
                 // Signed in 
                 const user = userCredential.user;
                 console.log("Successful Login");
-                setUserContext(user);
+                
                 // ...
             })
             .catch((error) => {
@@ -90,9 +97,9 @@ function Login() {
 
             <div className='
          flex-col min-h-screen w-[31%]  bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
-         
+         id='loginDiv'
         style={{ display:displayMode}}>
-            <img onClick={loginDisplay} className="h-[6vh] absolute top-3 right-0  w-16" src="\close-icon.svg" alt="" />
+            <img onClick={loginDisplay} className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
                 {loginState ? (<>
                     <span className='text-2xl '>Login</span>
 
