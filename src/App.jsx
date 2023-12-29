@@ -9,12 +9,11 @@ function App() {
 
   return (
     <LoginModalContextProvider>
-    <Header/>
-    <Login />
-    <Footer/>
+      <Header />
+      <Login />
+      <Footer />
     </LoginModalContextProvider>
   )
 }
 
 export default App
- 

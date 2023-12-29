@@ -4,8 +4,9 @@ import LoginModalContext from "../../Context/Context";
 
 
 function Header() {
-
+  const {displayMode,setdisplayMode,userContext} = useContext(LoginModalContext)
   const [displaystyle, setdisplaystyle] = useState("none");
+  
 
   window.onclick = function(event) {
     if (!event.target.matches('#menu-icon')&&!event.target.matches('#dropdown-menu')&&!event.target.matches('#dropdown-items')&&!event.target.matches('#blur')) {
@@ -13,7 +14,7 @@ function Header() {
     }
   }
  
-  const {displayMode,setdisplayMode} = useContext(LoginModalContext)
+  console.log(userContext,"header user");
   
 
   const loginDisplay = () =>{
@@ -68,7 +69,7 @@ function Header() {
         </ul>
       </div>
       <div id="blur" className=" min-h-screen w-[69%] opacity-40 fixed inset-y-0 right-0 bg-[#f7ffff]" style={{ display: displaystyle }}>
-
+          
       </div>
      </div>
     </div>
