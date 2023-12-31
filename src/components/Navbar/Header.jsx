@@ -67,7 +67,7 @@ function Header() {
         />
         <div className=" text-xl w-72 overflow-hidden align-middle justify-end flex gap-4 text-[#409797] font-semibold">
 
-          <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-1 px-2 relative bg-[#027373] text-white" id="Loginbutton" onMouseOver={displayProfile}>{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
+          <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-2 px-3  relative bg-[#027373] text-white font-normal" id="Loginbutton" onMouseOver={displayProfile}>{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
           <div className="flex  items-center "> <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" /></div>
 
           <div className="" style={{ display: profileDisplay }}>
