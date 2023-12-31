@@ -9,11 +9,7 @@ function HomePage() {
   const [image2, setimage2] = useState(
     "https://static.wixstatic.com/media/nsplsh_97f90f8e2e0a428d91c969887eaa53e1~mv2.jpg/v1/crop/x_651,y_0,w_949,h_1426/fill/w_423,h_635,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Slumber%20Sleep%20Aid.jpg"
   );
-  
 
-
- 
-  
   return (
     <div className="font-family  ">
       <div className="bg-[#fbfbfb]">
@@ -67,7 +63,7 @@ function HomePage() {
                   "https://static.wixstatic.com/media/e32ef9_98ff64afe81747bd80c27e0552dd6bc4~mv2.jpg/v1/fill/w_403,h_604,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1_jpeg.jpg"
                 );
               }}
-              onMouseOut={ () => {
+              onMouseOut={() => {
                 setimage(
                   "https://static.wixstatic.com/media/e32ef9_bfc0fe40ca004d81b60eb36acb109fb7~mv2.jpg/v1/crop/x_173,y_0,w_678,h_1024/fill/w_404,h_610,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaraam_2.jpg"
                 );
@@ -105,7 +101,7 @@ function HomePage() {
             </p>
             <br />
 
-            <button  style={{boxShadow:"5px 4px #a9d9ce"}} className="border-2 rounded-xl  w-[25vh] py-2 bg-[#027373] duration-150 text-white hover:bg-[#a9d9ce] active:translate-y-2 active:translate-x-1 ">
+            <button style={{ boxShadow: "5px 4px #a9d9ce" }} className="border-2 rounded-xl  w-[25vh] py-2 bg-[#027373] duration-150 text-white hover:bg-[#a9d9ce] active:translate-y-2 active:translate-x-1 ">
               Shop Now
             </button>
           </div>
@@ -119,33 +115,33 @@ function HomePage() {
           <div className="max-h-fit overflow-hidden " >
             <div className="shadow-inner">
 
-          <img className="h-[35vh] hover:-translate-y-14 duration-500" src="https://static.wixstatic.com/media/e32ef9_716d02aac2b245578d5cb434c4f00b11~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
+              <img className="h-[35vh] hover:-translate-y-14 duration-500" src="https://static.wixstatic.com/media/e32ef9_716d02aac2b245578d5cb434c4f00b11~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
             </div>
-          <span className="text-3xl ">Aaram</span>
-          <br />
-          <span className="text-xl ">₹ 1,799</span>
-          <br />
-          <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
+            <span className="text-3xl ">Aaram</span>
+            <br />
+            <span className="text-xl ">₹ 1,799</span>
+            <br />
+            <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
           </div>
           <div className="max-h-fit overflow-hidden">
-          <img  className="h-[35vh] hover:-translate-y-12 duration-500" src="https://static.wixstatic.com/media/5eed11_f3abb26fd5554362966350e7998498c8~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
-          <span className="text-3xl">Vishraam</span>
-          <br />
-          <span className="text-xl ">₹ 2,799</span>
-          <br />
-          <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
+            <img className="h-[35vh] hover:-translate-y-12 duration-500" src="https://static.wixstatic.com/media/5eed11_f3abb26fd5554362966350e7998498c8~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
+            <span className="text-3xl">Vishraam</span>
+            <br />
+            <span className="text-xl ">₹ 2,799</span>
+            <br />
+            <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
           </div>
         </div>
       </section>
       <section className=" mt-20 pt-20 text-center ">
         <span className="text-5xl">Why CBD?</span>
         <div className="flex py-10 ">
-      
 
-        <img className="w-[90vh] opacity-55"  src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1140/https://www.lovehappensmag.com/blog/wp-content/uploads/2022/03/cbd-advocates-1140x660.jpg" alt="" />
-       
-        <p className="text-left text-2xl px-32 py-5">
-          CBD works by interacting with the body's endocannabinoid          system (ECS). The Endocannabinoid System (ECS) is a         neuromodulatory system that is spread throughout our body.          Similar to our Central Nervous System (CNS), it plays a         very important role in modulating and regulating our        nervous system. It helps maintain the human body's       homeostasis, i.e. helping the body adjust its internal         self-regulating functions by adjusting itself to external         conditions.</p>
+
+          <img className="w-[90vh] opacity-55" src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1140/https://www.lovehappensmag.com/blog/wp-content/uploads/2022/03/cbd-advocates-1140x660.jpg" alt="" />
+
+          <p className="text-left text-2xl px-32 py-5">
+            CBD works by interacting with the body's endocannabinoid          system (ECS). The Endocannabinoid System (ECS) is a         neuromodulatory system that is spread throughout our body.          Similar to our Central Nervous System (CNS), it plays a         very important role in modulating and regulating our        nervous system. It helps maintain the human body's       homeostasis, i.e. helping the body adjust its internal         self-regulating functions by adjusting itself to external         conditions.</p>
         </div>
       </section>
 

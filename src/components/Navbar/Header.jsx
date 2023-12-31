@@ -9,6 +9,7 @@ function Header() {
   const [navDisplay, setnavDisplay] = useState("none");
   const [user, setUser] = useState();
   const [firstName, setName] = useState();
+  const [profileDisplay,setProfile] = useState("none");
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
@@ -41,6 +42,16 @@ function Header() {
    
   }
 
+  
+
+  const displayProfile = () => {
+    // console.log(displayMode);
+    if (profileDisplay === "none") {
+      setProfile("flex")
+    }
+    else setProfile("none")
+  }
+
   return (
     <div  >
       <div className="h-[11vh] w-screen justify-between shadow-lg flex px-4 items-center bg-white fixed z-10 border-b-2 border-[#a9d9ce] ">
@@ -63,14 +74,16 @@ function Header() {
         />
         <div className=" text-xl overflow-hidden align-middle justify-end flex space-x-4 text-[#409797] font-semibold">
 
-          <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-1 px-2 relative bg-[#027373] text-white" id="Loginbutton">{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
+          <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-2 px-3  relative bg-[#027373] text-white font-normal" id="Loginbutton" onMouseOver={displayProfile}>{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
           
           <div className="flex items-center ">
             <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" />
           </div>
  
+          <div className="" style={{ display: profileDisplay }}>
+            Hello
+          </div>
         </div>
-
       </div>
 
 

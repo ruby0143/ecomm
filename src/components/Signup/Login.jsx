@@ -93,8 +93,6 @@ function Login() {
     }
     return (
         <div>
-
-
             <div className='
          flex-col min-h-screen w-[31%]  bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
          id='loginDiv'
