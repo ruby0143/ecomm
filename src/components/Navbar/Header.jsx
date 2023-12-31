@@ -13,7 +13,7 @@ function Header() {
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-      console.log(user, "printing from navbar");
+      // console.log(user, "printing from navbar");
       setUser(user);
       setName(user.email.slice(0, 1).toUpperCase());
       
@@ -28,8 +28,8 @@ function Header() {
     }
    
   }
-   console.log(navDisplay);
-  console.log(userContext, "header user");
+  //  console.log(navDisplay);
+  // console.log(userContext, "header user");
 
 
   const loginDisplay = () => {

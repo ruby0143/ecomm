@@ -12,7 +12,7 @@ function Login() {
 
     useEffect(()=>{
         auth.onAuthStateChanged(user=> {
-            console.log(user,"printing from navbar");
+            // console.log(user,"printing from navbar");
             setUser(user.email);
         })
     },[])
