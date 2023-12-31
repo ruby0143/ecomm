@@ -5,8 +5,8 @@ import Login from "../Signup/Login"
 
 
 function Header() {
-  const { displayMode, setdisplayMode, userContext } = useContext(LoginModalContext)
-  const [displaystyle, setdisplaystyle] = useState("none");
+  const { loginDisplayMode, setloginDisplayMode, userContext } = useContext(LoginModalContext)
+  const [navDisplay, setnavDisplay] = useState("none");
   const [user, setUser] = useState();
   const [firstName, setName] = useState();
 
@@ -15,36 +15,41 @@ function Header() {
       console.log(user, "printing from navbar");
       setUser(user);
       setName(user.email.slice(0, 1).toUpperCase());
+      
     })
   }, [])
 
   window.onclick = function (event) {
-    if (!event.target.matches('#menu-icon') && !event.target.matches('#dropdown-menu') && !event.target.matches('#dropdown-items') && !event.target.matches('#blur') && !event.target.matches('#loginDiv') && !event.target.matches('#Loginbutton')) {
-      setdisplaystyle("none")
-      setdisplayMode("none")
+    if (!event.target.matches('#menu-icon') && !event.target.matches('#dropdown-menu') && !event.target.matches('#dropdown-items')&& !event.target.matches('#loginDiv')&& !event.target.matches('#Loginbutton') ) {
+      setnavDisplay("none")
+      setloginDisplayMode("none")
+    
     }
+   
   }
-
+   console.log(navDisplay);
   console.log(userContext, "header user");
 
 
   const loginDisplay = () => {
-    console.log(displayMode);
-    if (displayMode === "none" && !user) {
-      setdisplayMode("flex")
+    console.log(loginDisplayMode);
+    if (loginDisplayMode === "none" ) {
+      setloginDisplayMode("flex")
     }
-    else setdisplayMode("none")
+    else setloginDisplayMode("none")
+
+   
   }
 
   return (
-    <div >
-      <div className="h-[11vh] w-full justify-between shadow-lg flex px-4 items-center bg-white fixed z-10 border-b-2 border-[#a9d9ce]">
-        <img id="menu-icon"
+    <div  >
+      <div className="h-[11vh] w-screen justify-between shadow-lg flex px-4 items-center bg-white fixed z-10 border-b-2 border-[#a9d9ce] ">
+        <img  id="menu-icon"
           onClick={() => {
-            if (displaystyle === "none") {
-              setdisplaystyle("flex");
+            if (navDisplay === "none") {
+              setnavDisplay("flex");
             } else {
-              setdisplaystyle("none");
+              setnavDisplay("none");
             }
           }}
           className="h-8 justify-self-center hover:cursor-pointer"
@@ -52,18 +57,22 @@ function Header() {
           alt=""
         />
         <img
-          className=" h-[10vh] pl-24 "
+          className=" h-[10vh]  "
           src="https://static.wixstatic.com/media/5eed11_b38f1857c3dd4da48ea06749d409527f~mv2.jpeg/v1/crop/x_0,y_879,w_4167,h_2409/fill/w_160,h_93,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1.jpeg"
           alt=""
         />
-        <div className=" text-xl w-72 overflow-hidden align-middle justify-end flex gap-4 text-[#409797] font-semibold">
+        <div className=" text-xl overflow-hidden align-middle justify-end flex space-x-4 text-[#409797] font-semibold">
 
           <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-1 px-2 relative bg-[#027373] text-white" id="Loginbutton">{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
-          <div className="flex  items-center "> <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" /></div>
-
+          
+          <div className="flex items-center ">
+            <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" />
+          </div>
+ 
         </div>
 
       </div>
+
 
       <div id="loginDiv">
         <Login />
@@ -71,10 +80,10 @@ function Header() {
       <div className="flex">
         <div
           id="dropdown-menu"
-          className="hidden min-h-screen w-[31%] bg-[#027373] fixed z-20"
-          style={{ display: displaystyle }}
+          className=" min-h-screen w-[31%] bg-[#027373] fixed z-20"
+          style={{ display: navDisplay }}
         >
-          <img className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
+          <img id="CloseIcon" className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
           <ul id="dropsown-items" className="flex flex-col text-[#a9d9ce] text-2xl gap-6 m-auto ">
             <span className="hover:text-white"><a href="">Home</a></span>
             <span className="hover:text-white"><a href="">About Us</a></span>
@@ -84,7 +93,7 @@ function Header() {
             <span className="hover:text-white"><a href="">Contact Us</a></span>
           </ul>
         </div>
-        <div id="blur" className=" min-h-screen w-[69%] opacity-40 fixed inset-y-0 right-0 bg-[#f7ffff]" style={{ display: displaystyle }}>
+        <div id="blur" className=" min-h-screen w-[69%] opacity-40 fixed inset-y-0 right-0 bg-[#f7ffff]" style={{ display: navDisplay }}>
 
         </div>
       </div>

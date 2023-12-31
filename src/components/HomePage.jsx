@@ -17,7 +17,7 @@ function HomePage() {
   return (
     <div className="font-family  ">
       <div className="bg-[#fbfbfb]">
-        <div className=" inset-x-0 top-0 w-full text-center py-10 ">
+        <div className=" inset-x-0 top-0 text-center py-10 ">
           <div className="text-2xl mt-14 ">
             Ascend to new heights of wellness with the
           </div>
@@ -26,7 +26,7 @@ function HomePage() {
           <br />
           <br />
           <img
-            className="ml-2 "
+            className="ml-2 min-w-screen"
             src="\Copy of All products_whitebg.png"
             alt=""
           />

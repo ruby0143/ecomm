@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className=" font-family flex justify-between">
+    <div className="font-family flex justify-between ">
       <div className="  bottom-0 left-0 items-center flex flex-col px-5 py-10 max-w-[50%]">
         <img
           className="w-[70vh] "
@@ -17,7 +17,7 @@ function Footer() {
         />
       </div>
 
-      <div className="w-1/2 right-0 bottom-0  content-start h-1/2 flex gap-[6rem] mt-3 pt-20 ">
+      <div className="w-1/2 right-0 bottom-0  h-1/2 flex gap-[6rem] mt-3 pt-20 ">
         <div className=" flex flex-col text-xl gap-2 font-semibold ">
         <a href="">Home</a>
         <a href="">About</a>

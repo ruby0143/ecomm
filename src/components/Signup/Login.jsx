@@ -7,7 +7,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginState, setLoginState] = useState(true);
-    const { displayMode, setdisplayMode} = useContext(LoginModalContext)
+    const { loginDisplayMode, setloginDisplayMode} = useContext(LoginModalContext)
     const [user,setUser] = useState(null);
 
     useEffect(()=>{
@@ -18,7 +18,7 @@ function Login() {
     },[])
 
     const loginDisplay = () => {
-        setdisplayMode("none")
+         setloginDisplayMode("none")
     }
     
     
@@ -98,7 +98,7 @@ function Login() {
             <div className='
          flex-col min-h-screen w-[31%]  bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
          id='loginDiv'
-        style={{ display:displayMode}}>
+        style={{ display:loginDisplayMode}}>
             <img onClick={loginDisplay} className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
                 {loginState ? (<>
                     <span className='text-2xl '>Login</span>
