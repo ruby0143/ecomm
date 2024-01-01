@@ -10,6 +10,7 @@ function Header() {
   const [user, setUser] = useState();
   const [firstName, setName] = useState();
   const [profileDisplay,setProfile] = useState("none");
+  const [productDropdown, setproductDropdown] = useState("none");
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
@@ -33,7 +34,7 @@ function Header() {
 
 
   const loginDisplay = () => {
-    console.log(loginDisplayMode);
+   
     if (loginDisplayMode === "none" ) {
       setloginDisplayMode("flex")
     }
@@ -100,14 +101,27 @@ function Header() {
           <ul id="dropsown-items" className="flex flex-col text-[#a9d9ce] text-2xl gap-6 m-auto ">
             <span className="hover:text-white"><a href="">Home</a></span>
             <span className="hover:text-white"><a href="">About Us</a></span>
-            <span className="hover:text-white"><a href="">Topicals</a></span>
-            <span className="hover:text-white"><a href="">Ingestables</a></span>
+            <div onMouseOver={()=>{
+                    setproductDropdown("flex");
+                  }}
+                  onMouseOut={()=>{
+                    setproductDropdown("none");
+                  }}
+                  className="hover:text-white flex flex-col space-y-4 ">
+                  <span>Topicals</span>
+                <div 
+                  style={{display : productDropdown}} className=" flex-col hover:cursor-pointer ">
+                  <span className="border-1 px-5 py-2 ">Aaram</span>
+                  <span className="border-1 px-5 py-2 ">Vishraam</span>
+                </div>
+
+            </div>
+            <div className="hover:text-white"><a href="">Ingestables</a></div>
             <span className="hover:text-white"><a href="">Consult a Vaidya</a></span>
             <span className="hover:text-white"><a href="">Contact Us</a></span>
           </ul>
         </div>
         <div id="blur" className=" min-h-screen w-[69%] opacity-40 fixed inset-y-0 right-0 bg-[#f7ffff]" style={{ display: navDisplay }}>
-
         </div>
       </div>
     </div>
