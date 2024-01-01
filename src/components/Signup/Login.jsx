@@ -2,26 +2,26 @@ import React, { useContext, useEffect, useState } from 'react'
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import LoginModalContext from '../../Context/Context';
+import axios from 'axios';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginState, setLoginState] = useState(true);
-    const { loginDisplayMode, setloginDisplayMode} = useContext(LoginModalContext)
-    const [user,setUser] = useState(null);
+    const { loginDisplayMode, setloginDisplayMode } = useContext(LoginModalContext)
+    const [user, setUser] = useState(null);
 
-    useEffect(()=>{
-        auth.onAuthStateChanged(user=> {
+    useEffect(() => {
+        auth.onAuthStateChanged(user => {
             // console.log(user,"printing from navbar");
             setUser(user.email);
         })
-    },[])
+    }, [])
 
     const loginDisplay = () => {
-         setloginDisplayMode("none")
+        setloginDisplayMode("none")
     }
-    
-    
+
 
     const googleSignUp = async (e) => {
         const provider = new GoogleAuthProvider();
@@ -33,7 +33,14 @@ function Login() {
                 // The signed-in user info.
                 const user = result.user;
                 console.log("User successfully logged in as : ", user)
-                
+                console.log("Posting...")
+                axios.post("http://localhost:3000/users", user)
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -55,7 +62,7 @@ function Login() {
                 // Signed up 
                 const user = userCredential.user;
                 console.log("User created as : ", userCredential)
-                
+
                 // ...
             })
             .catch((error) => {
@@ -72,7 +79,14 @@ function Login() {
                 // Signed in 
                 const user = userCredential.user;
                 console.log("Successful Login");
-                
+                console.log("Posting...")
+                axios.post("http://localhost:3000/users", user)
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
                 // ...
             })
             .catch((error) => {
@@ -95,15 +109,15 @@ function Login() {
         <div>
             <div className='
          flex-col min-h-screen w-[31%]  bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center'
-         id='loginDiv'
-        style={{ display:loginDisplayMode}}>
-            <img onClick={loginDisplay} className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
+                id='loginDiv'
+                style={{ display: loginDisplayMode }}>
+                <img onClick={loginDisplay} className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
                 {loginState ? (<>
                     <span className='text-2xl '>Login</span>
 
                     <hr className='border-1 border-[#a9d9ce] mt-2' />
                     <p>New to this site? <button onClick={handleLoginChange}>Sign Up</button></p>
-                    
+
                     <div className='flex flex-col w-[50vh] mx-auto gap-3 text-xl mt-20'>
                         <label for='label'>Email</label>
                         <input className='rounded-md h-10 shadow-md' type='email' onChange={(e) => setEmail(e.target.value)} />

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from "../firebase";
+import axios from 'axios';
+
 
 function Profile() {
     const [user, setUser] = useState();
@@ -11,11 +13,43 @@ function Profile() {
 
     useEffect(() => {
         auth.onAuthStateChanged(user => {
-            console.log(user, "printing from navbar");
+            // console.log(user, "printing from navbar");
             setUser(user);
             setIcon(user.email.slice(0, 1).toUpperCase());
         })
     }, [])
+
+    useEffect(() => {
+        axios.post("http://localhost:3000/users", { uid: user?.uid })
+            .then(resp => {
+                // console.log(resp);
+                const data = resp.data.message;
+                setName(data.firstName);
+                setLastName(data.lastName);
+                setMobile(data.mobile);
+                setAddress(data.address);
+            })
+            .catch(err => console.log(err));
+    }, [user])
+
+    function updateData() {
+        const body = {
+            uid: user.uid,
+            firstName: firstName,
+            lastName: lastName,
+            mobile: mobile,
+            address: address
+        }
+        setTimeout(() => {
+            axios.post("http://localhost:3000/updateUser", body)
+                .then(resp => {
+                    // console.log(resp);
+                    console.log(resp);
+                })
+                .catch(err => console.log(err));
+        }, 3000)
+
+    }
 
     return (
 
@@ -41,23 +75,23 @@ function Profile() {
                 <hr />
                 <div className='m-4 flex flex-col'>
                     <label className='my-4'>First Name :</label>
-                    <input type='text' className='rounded-md h-10 shadow-md border-2 border-zinc-200 focus:outline-none p-3' onChange={(e) => setName(e.target.value)} />
+                    <input type='text' className='rounded-md h-10 shadow-md border-2 border-zinc-200 focus:outline-none p-3' value={firstName} onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className='m-4 flex flex-col'>
                     <label className='my-4'>Last Name :</label>
-                    <input type='text' className='rounded-md h-10 shadow-md border-2 border-zinc-200 focus:outline-none p-3' onChange={(e) => setLastName(e.target.value)} />
+                    <input type='text' className='rounded-md h-10 shadow-md border-2 border-zinc-200 focus:outline-none p-3' value={lastName} onChange={(e) => setLastName(e.target.value)} />
                 </div>
                 <div className='m-4 flex flex-col'>
                     <label className='my-4'>Mobile:</label>
-                    <input type="tel" name="" id="" className='rounded-md h-10 shadow-md border-2 border-zinc-200 focus:outline-none p-3' onChange={(e) => setMobile(e.target.value)} />
+                    <input type="tel" name="" id="" className='rounded-md h-10 shadow-md border-2 border-zinc-200 focus:outline-none p-3' value={mobile} onChange={(e) => setMobile(e.target.value)} />
                 </div>
                 <div className='m-4 flex flex-col'>
                     <label className='my-4'>Address:</label>
-                    <textarea name="" id="" rows="5" className='rounded-md shadow-md border-2 border-zinc-200 focus:outline-none p-3' style={{ resize: 'none' }} onChange={(e) => setAddress(e.target.value)} ></textarea>
+                    <textarea name="" id="" rows="5" className='rounded-md shadow-md border-2 border-zinc-200 focus:outline-none p-3' value={address} style={{ resize: 'none' }} onChange={(e) => setAddress(e.target.value)} ></textarea>
                 </div>
                 <div className='flex justify-center'>
 
-                    <button className="m-auto border-2 border-white px-7 py-2 bg-[#027373] text-white m-4 rounded-md">Save Changes</button>
+                    <button className="m-auto border-2 border-white px-7 py-2 bg-[#027373] text-white m-4 rounded-md" onClick={updateData}>Save Changes</button>
                 </div>
             </div>
 

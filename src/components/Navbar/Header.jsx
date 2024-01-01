@@ -2,47 +2,50 @@ import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../../firebase";
 import LoginModalContext from "../../Context/Context";
 import Login from "../Signup/Login"
-
+import axios from "axios";
 
 function Header() {
   const { loginDisplayMode, setloginDisplayMode, userContext } = useContext(LoginModalContext)
   const [navDisplay, setnavDisplay] = useState("none");
   const [user, setUser] = useState();
   const [firstName, setName] = useState();
-  const [profileDisplay,setProfile] = useState("none");
+  const [profileDisplay, setProfile] = useState("none");
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       // console.log(user, "printing from navbar");
       setUser(user);
       setName(user.email.slice(0, 1).toUpperCase());
-      
+
     })
   }, [])
 
   window.onclick = function (event) {
-    if (!event.target.matches('#menu-icon') && !event.target.matches('#dropdown-menu') && !event.target.matches('#dropdown-items')&& !event.target.matches('#loginDiv')&& !event.target.matches('#Loginbutton') ) {
+    if (!event.target.matches('#menu-icon') && !event.target.matches('#dropdown-menu') && !event.target.matches('#dropdown-items') && !event.target.matches('#loginDiv') && !event.target.matches('#Loginbutton')) {
       setnavDisplay("none")
       setloginDisplayMode("none")
-    
+
     }
-   
+
   }
   //  console.log(navDisplay);
   // console.log(userContext, "header user");
 
+ 
+
+  
 
   const loginDisplay = () => {
     console.log(loginDisplayMode);
-    if (loginDisplayMode === "none" ) {
+    if (loginDisplayMode === "none") {
       setloginDisplayMode("flex")
     }
     else setloginDisplayMode("none")
 
-   
+
   }
 
-  
+
 
   const displayProfile = () => {
     // console.log(displayMode);
@@ -55,7 +58,7 @@ function Header() {
   return (
     <div  >
       <div className="h-[11vh] w-screen justify-between shadow-lg flex px-4 items-center bg-white fixed z-10 border-b-2 border-[#a9d9ce] ">
-        <img  id="menu-icon"
+        <img id="menu-icon"
           onClick={() => {
             if (navDisplay === "none") {
               setnavDisplay("flex");
@@ -75,11 +78,11 @@ function Header() {
         <div className=" text-xl overflow-hidden align-middle justify-end flex space-x-4 text-[#409797] font-semibold">
 
           <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-2 px-3  relative bg-[#027373] text-white font-normal" id="Loginbutton" onMouseOver={displayProfile}>{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
-          
+
           <div className="flex items-center ">
-            <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" />
+            <img className="h-[4vh] align-text-bottom hover:cursor-pointer"  src="\bag.svg" alt="" />
           </div>
- 
+
           <div className="" style={{ display: profileDisplay }}>
             Hello
           </div>
