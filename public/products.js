@@ -1,5 +1,6 @@
 export const products = [{
     id: "1",
+    price : 1799,
     header: {
         title: "Aaram",
         description: "Cooling Roll-On",
@@ -20,6 +21,7 @@ export const products = [{
 },
 {
     id: "2",
+    price : 2799,
     header: {
         title: "Vishraam",
         description: "Heating Roll-on",

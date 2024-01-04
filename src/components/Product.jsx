@@ -1,18 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import { products } from "../../public/products"
-
+import axios from 'axios';
+import { auth } from "../firebase";
 
 function Product() {
     const [productData, setData] = useState();
     const [productId,setProductId] = useState(useLocation().pathname.split('/')[2]);
+    const [user, setUser] = useState();
     // console.log(productId);
 
     useEffect(() => {
-        setData(products[productId-1]);
-    }, [productId])
-    console.log(productData?.header.title);
+        auth.onAuthStateChanged(user => {
+            // console.log(user, "printing from navbar");
+            setUser(user);
+        })
+    }, [])
 
+    useEffect(() => {
+        axios.get("http://localhost:3000/products")
+        .then(res =>{
+            // console.log(res);
+            setData(res.data.message.products[productId-1]);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+
+        
+    }, [productId])
+    
+
+    function addToCart(){
+        axios.post("http://localhost:3000/addToCart",{uid : user.uid, pid : productId})
+        .then(resp => {
+            console.log(resp);
+        })
+        .catch(err=> console.log(err));
+    }
 
     return (
         <div className=' max-w-full font-family'>
@@ -22,8 +46,8 @@ function Product() {
 
                     <span className='text-8xl pl-8 text-[#027373]'>{productData?.header.title}</span>
                     <span className='text-xl pt-5'>{productData?.header.description}<br />{productData?.header.quantity}</span>
-                    <button className="border-2 border-[#027373] rounded-md -ml-14 px-14 py-2 mt-4 text-[#027373] hover:text-white hover:bg-[#027373] ">
-                        Shop Now
+                    <button className="border-2 border-[#027373] rounded-md -ml-14 px-14 py-2 mt-4 text-[#027373] hover:text-white hover:bg-[#027373] " onClick={addToCart}>
+                        Add to cart
                     </button>
                 </div>
             </section>
