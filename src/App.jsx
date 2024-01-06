@@ -6,6 +6,7 @@ import Profile from "./components/Profile"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Orders from "./components/Orders"
 import Product from "./components/Product"
+import Cart from "./components/Cart"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/orders" element={<Orders />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/" element={<HomePage />} />
           </Routes>
