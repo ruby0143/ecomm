@@ -67,7 +67,7 @@ function Header() {
           alt=""
         />
         <img
-          className=" h-[10vh]  "
+          className=" h-[10vh] max-md:h-[8vh] "
           src="https://static.wixstatic.com/media/5eed11_b38f1857c3dd4da48ea06749d409527f~mv2.jpeg/v1/crop/x_0,y_879,w_4167,h_2409/fill/w_160,h_93,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1.jpeg"
           alt=""
         />
