@@ -16,7 +16,7 @@ function Header() {
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-      console.log(user, "printing from navbar");
+      // console.log(user, "printing from navbar");
       setUser(user);
       setName(user.email.slice(0, 1).toUpperCase());
 
