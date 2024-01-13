@@ -108,7 +108,7 @@ function Login() {
     return (
         <div>
             <div className='
-         flex-col min-h-screen w-[31%] bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center max-md:w-[40%]'
+         flex-col min-h-screen w-[31%] bg-[#027373] fixed z-10 right-0 py-10 gap-3 px-5 text-[#a9d9ce] items-center  max-lg:w-[60%] max-md:w-screen'
                 id='loginDiv'
                 style={{ display: loginDisplayMode }}>
                 <img onClick={loginDisplay} className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
@@ -118,7 +118,7 @@ function Login() {
                     <hr className='border-1 border-[#a9d9ce] mt-2' />
                     <p>New to this site? <button onClick={handleLoginChange}>Sign Up</button></p>
 
-                    <div className='flex flex-col w-[50vh] mx-auto gap-3 text-xl mt-20 max-md:w-[37vh] max-md:gap-2'>
+                    <div className='flex flex-col w-[80%] mx-auto gap-3 text-xl mt-20 max-md:w-[37vh] max-md:gap-2'>
                         <label for='label'>Email</label>
                         <input className='rounded-lg h-10 shadow-md' type='email' onChange={(e) => setEmail(e.target.value)} />
                         <label for='label'>Password</label>

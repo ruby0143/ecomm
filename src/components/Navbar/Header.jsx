@@ -113,7 +113,7 @@ function Header() {
       <div className="flex">
         <div
           id="dropdown-menu"
-          className=" h-screen w-[31%] bg-[#027373] fixed z-20 max-md:w-[40%] max-sm:w-screen "
+          className=" h-screen w-[31%] bg-[#027373] fixed z-20 max-lg:w-[60%] max-md:w-screen "
           style={{ display: navDisplay }}
         >
           <img id="CloseIcon" className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />

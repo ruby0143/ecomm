@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <div className="font-family  ">
       <div className="bg-[#fbfbfb]">
-        <div className=" inset-x-0 top-0 text-center py-10 ">
+        <div className=" inset-x-0 top-0 text-center py-10 max-lg:mt-20 ">
           <div className="text-2xl mt-14 ">
             Ascend to new heights of wellness with the
           </div>
@@ -41,8 +41,8 @@ function HomePage() {
           <hr className="border-1 border-black w-96  mt-7" />
         </div>
         <div className="flex w-full justify-center items-center max-sm:flex-col">
-          <div className="text-left w-[70vh] h-[70vh] pt-14 px-10 flex flex-col justify-center max-sm:w-screen max-sm:order-2 max-sm:h-[30vh] max-sm:pt-4">
-            <span className="text-4xl max-sm:pt-5  ">Topicals</span>
+          <div className="text-left w-[70vh] h-[70vh] pt-14 px-10 flex flex-col justify-center max-md:w-screen max-md:order-2 max-sm:h-[30vh] max-sm:pt-4 max-lg:pt-5 max-lg:h-[55vh]">
+            <span className="text-4xl max-md:pt-5 max-md:text-3xl  ">Topicals</span>
             <br />
             <p className="text-xl max-md:text-base ">
               Looking for fast-acting long-lasting relief for pain? Whether it
@@ -55,9 +55,9 @@ function HomePage() {
               Shop Now
             </button>
           </div>
-          <div className="pr-44 ml-20 max-md:pr-8 max-sm:ml-10 max-sm:order-1 max-sm:mt-10">
+          <div className="pr-28 ml-20 max-md:pr-8 max-sm:ml-10 max-sm:order-1 max-sm:mt-10 max-lg:pr-20 ">
             <img
-              className="h-[60vh] max-md:w-[80vh] max-md:h-[40vh]"
+              className="h-[60vh] max-md:w-[40vh] max-md:h-[40vh] max-lg:h-[40vh] max-lg:w-[50vh]  "
               onMouseOver={() => {
                 setimage(
                   "https://static.wixstatic.com/media/e32ef9_98ff64afe81747bd80c27e0552dd6bc4~mv2.jpg/v1/fill/w_403,h_604,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1_jpeg.jpg"
@@ -75,10 +75,10 @@ function HomePage() {
         </div>
 
 
-        <div className="flex w-screen justify-center items-center max-sm:flex-col max-sm:mt-10">
-          <div className=" pr-44 ml-10 max-md:pr-8 ">
+        <div className="flex w-screen justify-center items-center max-sm:flex-col max-sm:mt-10 ">
+          <div className=" pr-44 ml-10 max-md:pr-8 max-lg:pr-20">
             <img
-              className="h-[60vh] max-md:w-[80vh] max-md:h-[40vh]  "
+              className="h-[60vh] max-md:w-[40vh] max-md:h-[40vh] max-lg:w-[50vh] max-lg:h-[40vh] "
               onMouseOver={() => {
                 setimage2(
                   "https://static.wixstatic.com/media/e32ef9_126c9ed79fcd400b99b734448a526cea~mv2.jpg/v1/crop/x_157,y_0,w_1030,h_1500/fill/w_421,h_614,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Tula_orange_edited.jpg"
@@ -93,7 +93,7 @@ function HomePage() {
               alt=""
             />
           </div>
-          <div className="text-left w-[70vh] h-[70vh] p-14 flex flex-col justify-center max-sm:w-screen max-sm:h-[40vh] max-sm:pt-4 max-sm:px-10">
+          <div className="text-left w-[70vh] h-[70vh] p-14 flex flex-col justify-center max-sm:w-screen max-sm:h-[40vh] max-sm:pt-4 max-sm:px-10 max-lg:h-[55vh]">
             <span className="text-4xl max-md:text-3xl ">Ingestibles</span>
             <br />
             <p className="text-xl max-md:text-base ">
@@ -116,7 +116,7 @@ function HomePage() {
         <div className="flex justify-evenly py-16 w-full max-sm:flex-col max-sm:items-center max-sm:space-y-10">
           <div className="max-h-fit overflow-hidden " >
             <div className="shadow-inner">
-              <img className="h-[35vh] max-sm:h-[25vh] hover:-translate-y-14 duration-500" src="https://static.wixstatic.com/media/e32ef9_716d02aac2b245578d5cb434c4f00b11~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
+              <img className="h-[35vh] max-sm:h-[25vh] hover:-translate-y-14 duration-500 max-lg:h-[25vh]" src="https://static.wixstatic.com/media/e32ef9_716d02aac2b245578d5cb434c4f00b11~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
             </div>
             <span className="text-3xl ">Aaram</span>
             <br />
@@ -125,7 +125,7 @@ function HomePage() {
             <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
           </div>
           <div className="max-h-fit overflow-hidden">
-            <img className="h-[35vh] max-sm:h-[25vh] hover:-translate-y-12 duration-500" src="https://static.wixstatic.com/media/5eed11_f3abb26fd5554362966350e7998498c8~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
+            <img className="h-[35vh] max-sm:h-[25vh] hover:-translate-y-12 duration-500 max-lg:h-[25vh]" src="https://static.wixstatic.com/media/5eed11_f3abb26fd5554362966350e7998498c8~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
             <span className="text-3xl">Vishraam</span>
             <br />
             <span className="text-xl ">₹ 2,799</span>
@@ -136,11 +136,11 @@ function HomePage() {
       </section>
       <section className=" mt-20 pt-20 text-center w-screen ">
         <span className="text-5xl">Why CBD?</span>
-        <div className="flex py-10 items-center max-md:flex-col">
+        <div className="flex py-10 items-center max-md:flex-col max-lg:flex-col max-lg:space-y-9">
 
-          <img className="w-[90vh] opacity-55 max-md:w-[70vh] " src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1140/https://www.lovehappensmag.com/blog/wp-content/uploads/2022/03/cbd-advocates-1140x660.jpg" alt="" />
+          <img className="w-[90vh] opacity-55 max-md:w-[70vh] max-lg:w-full max-lg:h-[30vh] " src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1140/https://www.lovehappensmag.com/blog/wp-content/uploads/2022/03/cbd-advocates-1140x660.jpg" alt="" />
 
-          <p className="text-left text-2xl px-32 py-5 max-md:text-xl max-md:px-5">
+          <p className="text-left text-2xl px-32 py-5 max-md:text-xl max-md:px-5 ">
             CBD works by interacting with the body's endocannabinoid system (ECS). The Endocannabinoid System (ECS) is a         neuromodulatory system that is spread throughout our body. Similar to our Central Nervous System (CNS), it plays a         very important role in modulating and regulating our        nervous system. It helps maintain the human body's       homeostasis, i.e. helping the body adjust its internal         self-regulating functions by adjusting itself to external         conditions.</p>
         </div>
       </section>
