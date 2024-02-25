@@ -4,6 +4,7 @@ import { signOut } from "firebase/auth";
 import LoginModalContext from "../../Context/Context";
 import Login from "../Signup/Login"
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 function Header() {
   const { loginDisplayMode, setloginDisplayMode, userContext } = useContext(LoginModalContext)
@@ -66,11 +67,13 @@ function Header() {
           src="\menu.svg"
           alt=""
         />
-        <img
-          className=" h-[10vh]  "
-          src="https://static.wixstatic.com/media/5eed11_b38f1857c3dd4da48ea06749d409527f~mv2.jpeg/v1/crop/x_0,y_879,w_4167,h_2409/fill/w_160,h_93,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1.jpeg"
-          alt=""
-        />
+        <Link to="/">
+          <img
+            className=" h-[10vh]  "
+            src="https://static.wixstatic.com/media/5eed11_b38f1857c3dd4da48ea06749d409527f~mv2.jpeg/v1/crop/x_0,y_879,w_4167,h_2409/fill/w_160,h_93,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/1.jpeg"
+            alt=""
+          />
+        </Link>
         <div className=" text-xl overflow-hidden align-middle justify-end flex space-x-4 text-[#409797] font-semibold">
 
           <button onClick={loginDisplay} >{user ? (<><div className="rounded-full border-2 p-2 px-3  relative bg-[#027373] text-white font-normal" id="Loginbutton"
@@ -81,7 +84,9 @@ function Header() {
           >{firstName}</div></>) : (<div id="Loginbutton">Login</div>)}</button>
 
           <div className="flex items-center ">
-            <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" />
+            <Link to="/cart">
+              <img className="h-[4vh] align-text-bottom hover:cursor-pointer" src="\bag.svg" alt="" />
+            </Link>
           </div>
         </div>
       </div>
@@ -90,9 +95,9 @@ function Header() {
         <div className="px-2 my-3 text-[#027373]" style={{ overflowWrap: "break-word" }} >{user?.email}</div>
         <hr className="border-1 border-[#027373]" />
         <div className="space-y-3 flex flex-col px-3 py-3  ">
-          <span>My Profile</span>
-          <span>My orders</span>
-          <span>Contact Us</span>
+          <Link to="/profile"><button>My Profile</button></Link>      
+          <Link to="/"><button>My orders</button></Link>
+          <Link to="/"><button>Contact Us</button></Link>
         </div>
         <hr className="border-1 border-[#027373]" />
         <button className="px-3 py-3" onClick={() => {
@@ -118,7 +123,7 @@ function Header() {
         >
           <img id="CloseIcon" className="h-[5vh] absolute top-3 right-0  w-16 hover:cursor-pointer" src="\close-icon.svg" alt="" />
           <ul id="dropsown-items" className="flex flex-col text-[#a9d9ce] text-2xl gap-6 m-auto max-md:text-xl ">
-            <span className="hover:text-white"><a href="">Home</a></span>
+            <span className="hover:text-white"><Link to="/">Home</Link></span>
             <span className="hover:text-white"><a href="">About Us</a></span>
             <div onMouseOver={() => {
               setproductDropdown("flex");
@@ -130,8 +135,8 @@ function Header() {
               <span>Topicals</span>
               <div
                 style={{ display: productDropdown }} className=" flex-col hover:cursor-pointer ">
-                <span className="border-1 px-5 py-2 ">Aaram</span>
-                <span className="border-1 px-5 py-2 ">Vishraam</span>
+                <Link to="/product/1"><span className="border-1 px-5 py-2 ">Aaram</span></Link>
+                <Link to="/product/2"><span className="border-1 px-5 py-2 ">Vishraam</span></Link>
               </div>
 
             </div>

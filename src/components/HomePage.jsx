@@ -1,5 +1,6 @@
-
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+
 
 function HomePage() {
   const [image, setimage] = useState(
@@ -102,7 +103,7 @@ function HomePage() {
               irregular blood pressure.
             </p>
             <br />
-
+              
             <button style={{ boxShadow: "5px 4px #a9d9ce" }} className="border-2 rounded-xl  w-[25vh] py-2 bg-[#027373] duration-150 text-white hover:bg-[#a9d9ce] active:translate-y-2 active:translate-x-1 ">
               Shop Now
             </button>
@@ -122,7 +123,9 @@ function HomePage() {
             <br />
             <span className="text-xl ">₹ 1,799</span>
             <br />
+            <Link to="/product/1">
             <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
+            </Link>
           </div>
           <div className="max-h-fit overflow-hidden">
             <img className="h-[35vh] max-sm:h-[25vh] hover:-translate-y-12 duration-500" src="https://static.wixstatic.com/media/5eed11_f3abb26fd5554362966350e7998498c8~mv2.jpg/v1/fill/w_365,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Aaram_blue_edited.jpg" alt="" />
@@ -130,7 +133,9 @@ function HomePage() {
             <br />
             <span className="text-xl ">₹ 2,799</span>
             <br />
+            <Link to="/product/2">
             <button className="border-2 border-white px-7 py-2 bg-white text-[#027373] mt-2 rounded-md">Read More</button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,12 +1,14 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,useContext} from 'react'
+
 import { auth } from "../firebase";
+import LoginModalContext from '../Context/Context';
 
 function CartItem(props) {
     const [quantity, setQuantity] = useState(props.quantity);
     const [user, setUser] = useState();
     // console.log(productId);
-
+    const { cartTotal,setTotal } = useContext(LoginModalContext)
     useEffect(() => {
         auth.onAuthStateChanged(user => {
             // console.log(user, "printing from navbar");
@@ -16,26 +18,38 @@ function CartItem(props) {
 
     function increaseQty() {
         setQuantity(prev => prev + 1);
+        setTotal(props.price*(quantity+1));
         axios.post("http://localhost:3000/addToCart", { uid: user.uid, pid: props.pid })
-            .then(res => console.log(res))
+            .then(res => {
+                
+                
+            })
             .catch(err => console.log(err))
 
     }
     function reduceQty() {
         setQuantity(prev => prev - 1);
+        setTotal(props.price*(quantity-1));
         axios.post("http://localhost:3000/deleteFromCart", { uid: user.uid, pid: props.pid, delete : false })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                
+            })
             .catch(err => console.log(err))
 
     }
 
     function removeItem() {
         setQuantity(0)
+        setTotal(0)
         axios.post("http://localhost:3000/deleteFromCart", { uid: user.uid, pid: props.pid, delete:true })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                
+            })
             .catch(err => console.log(err))
     }
-
+    console.log(cartTotal);
 
     return (
         <div>
